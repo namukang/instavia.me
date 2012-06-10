@@ -5,9 +5,16 @@
   "permissions": [
     "https://api.via.me/*"
   ],
-  "content_scripts": [{
+  "content_scripts": [
+  {
     "matches": ["<all_urls>"],
     "js": ["contentscript.js"]
-  }],
+  },
+  {
+    "matches": [""],
+    "js": ["oauth2/oauth2_inject.js"],
+    "run_at": "document_start"
+  }
+  ],
   "options_page": "options.html"
 }
