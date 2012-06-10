@@ -3,6 +3,8 @@ var auth = new OAuth2('viame', {
     client_secret: 'cjmym83dwlewqqk06bvg6x06g'
 });
 
+// NB: If you don't set the timeout, 'authorize' could run before OAuth2 is
+// constructed, causing an error
 setTimeout(function() {
   auth.authorize(function() {
     // Ready for action
