@@ -12,12 +12,17 @@ setTimeout(function() {
 
 function displayForm(info, tab) {
   var imgUrl = info.srcUrl;
-  $.get(imgUrl, function(imgData) {
+  var req = new XMLHttpRequest();
+  req.open("GET", imgUrl, true);
+  req.responseType = "arraybuffer";
+
+  req.onload = function(e) {
+    var arrayBuffer = req.response;
     var fd = new FormData();
-    fd.append('text', 'status form testing');
+    fd.append('text', 'photo testing');
     fd.append('access_token', auth.getAccessToken());
-    fd.append('media_type', 'status');
-    // fd.append('media', imgData);
+    fd.append('media_type', 'photo');
+    fd.append('media', new Blob([arrayBuffer]));
     $.ajax({
       url: 'https://api.via.me/v1/post',
       type: 'POST',
@@ -28,6 +33,11 @@ function displayForm(info, tab) {
         console.log(data);
       }
     });
+  };
+  req.send();
+  return;
+
+  $.get(imgUrl, function(imgData) {
   }, 'text');
 
   // $.ajax({
