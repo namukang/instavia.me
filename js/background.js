@@ -16,15 +16,15 @@ function displayForm(info, tab) {
     var imgUrl = info.srcUrl;
     var req = new XMLHttpRequest();
     req.open("GET", imgUrl, true);
-    req.responseType = "arraybuffer";
+    req.responseType = "blob";
 
     req.onload = function(e) {
-      var arrayBuffer = req.response;
+      var blob = req.response;
       var fd = new FormData();
       fd.append('text', caption);
       fd.append('access_token', auth.getAccessToken());
       fd.append('media_type', 'photo');
-      fd.append('media', new Blob([arrayBuffer]));
+      fd.append('media', blob);
       $.ajax({
         url: 'https://api.via.me/v1/post',
         type: 'POST',
@@ -32,7 +32,6 @@ function displayForm(info, tab) {
         processData: false,
         data: fd,
         success: function(data) {
-          console.log(data);
           alert("Your image was successfully uploaded!");
         }
       });
