@@ -2,18 +2,22 @@
   "name": "via.me Instant",
   "version": "0.0.1",
   "description": "Chrome extension for via.me",
+  "background": {
+    "page": "background.html"
+  },
   "permissions": [
-    "https://api.via.me/*"
+    "https://api.via.me/*",
+    "http://via.me/*"
   ],
   "content_scripts": [
   {
-    "matches": ["<all_urls>"],
-    "js": ["contentscript.js"]
-  },
-  {
-    "matches": [""],
+    "matches": ["http://radiumone.com/robots.txt*"],
     "js": ["oauth2/oauth2_inject.js"],
     "run_at": "document_start"
+  },
+  {
+    "matches": ["<all_urls>"],
+    "js": ["contentscript.js"]
   }
   ],
   "options_page": "options.html"
