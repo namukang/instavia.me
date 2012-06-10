@@ -3,10 +3,12 @@ var auth = new OAuth2('viame', {
     client_secret: 'cjmym83dwlewqqk06bvg6x06g'
 });
 
-auth.authorize(function() {
-  // Ready for action
-  console.log('Authorized!');
-});
+setTimeout(function() {
+  auth.authorize(function() {
+    // Ready for action
+    console.log('Authorized!');
+  });
+}, 500);
 
 function displayForm(info, tab) {
   console.log("Clicked!");
