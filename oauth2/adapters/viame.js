@@ -65,8 +65,7 @@ OAuth2.adapter('viame', {
   parseAccessToken: function(response) {
     var parsedResponse = JSON.parse(response);
     return {
-      accessToken: parsedResponse.access_token,
-      expiresIn: Number.MAX_VALUE
+      accessToken: parsedResponse.access_token
     };
   }
 });
