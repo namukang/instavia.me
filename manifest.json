@@ -1,7 +1,7 @@
 {
   "name": "Instavia.me",
   "version": "0.0.3",
-  "description": "Chrome extension for via.me",
+  "description": "Via.me on steroids",
   "background": {
     "page": "background.html"
   },
