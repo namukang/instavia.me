@@ -1,6 +1,6 @@
 {
   "name": "Instavia.me",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "Via.me on steroids",
   "background": {
     "page": "background.html"
