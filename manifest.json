@@ -12,6 +12,7 @@
     "contextMenus"
   ],
   "icons": {
+    "128": "img/icon-large.png",
     "16": "img/icon-bitty.png"
   },
   "content_scripts": [
