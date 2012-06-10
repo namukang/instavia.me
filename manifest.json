@@ -5,11 +5,9 @@
   "permissions": [
     "https://api.via.me/*"
   ],
-  "content_scripts": [
-    {
+  "content_scripts": [{
     "matches": ["<all_urls>"],
     "js": ["contentscript.js"]
-  },
+  }],
   "options_page": "options.html"
-  ]
 }
