@@ -11,7 +11,37 @@ setTimeout(function() {
 }, 500);
 
 function displayForm(info, tab) {
-  console.log("Clicked!");
+  var imgUrl = info.srcUrl;
+  $.get(imgUrl, function(imgData) {
+    $.ajax({
+      url: 'https://api.via.me/v1/post',
+      type: 'POST',
+      contentType: 'multipart/form-data',
+      processData: false,
+      data: {
+        text: 'photo testing',
+        access_token: auth.getAccessToken(),
+        media_type: 'photo',
+        media: imgData
+      },
+      success: function(data) {
+        console.log(data);
+      }
+    });
+  }, 'text');
+
+  // $.ajax({
+  //   url: 'https://api.via.me/v1/post',
+  //   type: 'POST',
+  //   data: {
+  //     text: 'status testing 2!',
+  //     access_token: auth.getAccessToken(),
+  //     media_type: 'status'
+  //   },
+  //   success: function(data) {
+  //     console.log(data);
+  //   }
+  // });
 }
 
 // Add item to context menu

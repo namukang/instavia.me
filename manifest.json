@@ -6,6 +6,7 @@
     "page": "background.html"
   },
   "permissions": [
+    "<all_urls>",
     "https://api.via.me/*",
     "http://via.me/*",
     "contextMenus"
