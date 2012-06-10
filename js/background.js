@@ -13,17 +13,17 @@ setTimeout(function() {
 function displayForm(info, tab) {
   var imgUrl = info.srcUrl;
   $.get(imgUrl, function(imgData) {
+    var fd = new FormData();
+    fd.append('text', 'status form testing');
+    fd.append('access_token', auth.getAccessToken());
+    fd.append('media_type', 'status');
+    // fd.append('media', imgData);
     $.ajax({
       url: 'https://api.via.me/v1/post',
       type: 'POST',
-      contentType: 'multipart/form-data',
+      contentType: false,
       processData: false,
-      data: {
-        text: 'photo testing',
-        access_token: auth.getAccessToken(),
-        media_type: 'photo',
-        media: imgData
-      },
+      data: fd,
       success: function(data) {
         console.log(data);
       }
