@@ -12,31 +12,33 @@ setTimeout(function() {
 
 function displayForm(info, tab) {
   var caption = prompt("Please enter a caption", "");
-  var imgUrl = info.srcUrl;
-  var req = new XMLHttpRequest();
-  req.open("GET", imgUrl, true);
-  req.responseType = "arraybuffer";
+  if (caption !== null) {
+    var imgUrl = info.srcUrl;
+    var req = new XMLHttpRequest();
+    req.open("GET", imgUrl, true);
+    req.responseType = "arraybuffer";
 
-  req.onload = function(e) {
-    var arrayBuffer = req.response;
-    var fd = new FormData();
-    fd.append('text', caption);
-    fd.append('access_token', auth.getAccessToken());
-    fd.append('media_type', 'photo');
-    fd.append('media', new Blob([arrayBuffer]));
-    $.ajax({
-      url: 'https://api.via.me/v1/post',
-      type: 'POST',
-      contentType: false,
-      processData: false,
-      data: fd,
-      success: function(data) {
-        console.log(data);
-        alert("Your image was successfully uploaded!");
-      }
-    });
-  };
-  req.send();
+    req.onload = function(e) {
+      var arrayBuffer = req.response;
+      var fd = new FormData();
+      fd.append('text', caption);
+      fd.append('access_token', auth.getAccessToken());
+      fd.append('media_type', 'photo');
+      fd.append('media', new Blob([arrayBuffer]));
+      $.ajax({
+        url: 'https://api.via.me/v1/post',
+        type: 'POST',
+        contentType: false,
+        processData: false,
+        data: fd,
+        success: function(data) {
+          console.log(data);
+          alert("Your image was successfully uploaded!");
+        }
+      });
+    };
+    req.send();
+  }
 }
 
 // Add item to context menu
