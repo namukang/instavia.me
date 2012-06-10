@@ -7,7 +7,8 @@
   },
   "permissions": [
     "https://api.via.me/*",
-    "http://via.me/*"
+    "http://via.me/*",
+    "contextMenus"
   ],
   "content_scripts": [
   {

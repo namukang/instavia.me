@@ -7,3 +7,14 @@ auth.authorize(function() {
   // Ready for action
   console.log('Authorized!');
 });
+
+function displayForm(info, tab) {
+  console.log("Clicked!");
+}
+
+// Add item to context menu
+chrome.contextMenus.create({
+  title: "Post to via.me",
+  contexts: ["image"],
+  onclick: displayForm
+});
