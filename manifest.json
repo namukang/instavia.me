@@ -1,6 +1,6 @@
 {
-  "name": "Instant via.me",
-  "version": "0.0.2",
+  "name": "Instavia.me",
+  "version": "0.0.3",
   "description": "Chrome extension for via.me",
   "background": {
     "page": "background.html"
