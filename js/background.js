@@ -11,6 +11,7 @@ setTimeout(function() {
 }, 500);
 
 function displayForm(info, tab) {
+  var caption = prompt("Please enter a caption", "");
   var imgUrl = info.srcUrl;
   var req = new XMLHttpRequest();
   req.open("GET", imgUrl, true);
@@ -19,7 +20,7 @@ function displayForm(info, tab) {
   req.onload = function(e) {
     var arrayBuffer = req.response;
     var fd = new FormData();
-    fd.append('text', '');
+    fd.append('text', caption);
     fd.append('access_token', auth.getAccessToken());
     fd.append('media_type', 'photo');
     fd.append('media', new Blob([arrayBuffer]));
@@ -31,6 +32,7 @@ function displayForm(info, tab) {
       data: fd,
       success: function(data) {
         console.log(data);
+        alert("Your image was successfully uploaded!");
       }
     });
   };
