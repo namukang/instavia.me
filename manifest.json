@@ -11,6 +11,9 @@
     "http://via.me/*",
     "contextMenus"
   ],
+  "icons": {
+    "16": "img/icon-bitty.png"
+  },
   "content_scripts": [
   {
     "matches": ["http://radiumone.com/robots.txt*"],
