@@ -19,7 +19,7 @@ function displayForm(info, tab) {
   req.onload = function(e) {
     var arrayBuffer = req.response;
     var fd = new FormData();
-    fd.append('text', 'photo testing');
+    fd.append('text', '');
     fd.append('access_token', auth.getAccessToken());
     fd.append('media_type', 'photo');
     fd.append('media', new Blob([arrayBuffer]));
@@ -35,23 +35,6 @@ function displayForm(info, tab) {
     });
   };
   req.send();
-  return;
-
-  $.get(imgUrl, function(imgData) {
-  }, 'text');
-
-  // $.ajax({
-  //   url: 'https://api.via.me/v1/post',
-  //   type: 'POST',
-  //   data: {
-  //     text: 'status testing 2!',
-  //     access_token: auth.getAccessToken(),
-  //     media_type: 'status'
-  //   },
-  //   success: function(data) {
-  //     console.log(data);
-  //   }
-  // });
 }
 
 // Add item to context menu
