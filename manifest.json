@@ -1,0 +1,15 @@
+{
+  "name": "via.me Instant",
+  "version": "0.0.1",
+  "description": "Chrome extension for via.me",
+  "permissions": [
+    "https://api.via.me/*"
+  ],
+  "content_scripts": [
+    {
+    "matches": ["<all_urls>"],
+    "js": ["contentscript.js"]
+  },
+  "options_page": "options.html"
+  ]
+}
